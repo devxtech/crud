@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pl" layout:decorator="layouts/main">
+<body>
+		
+<div layout:fragment="content">
+	<div class="container" >
+	   <div th:if="${not #lists.isEmpty(users)}">
+	        <h2>User</h2>
+	        <p th:text="${users.name}"></p>
+			<p th:text="${users.surname}"></p>
+	    </div>
+    </div>
+</div>
+		
+</body>
+</html>

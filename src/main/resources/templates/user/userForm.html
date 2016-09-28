@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl" layout:decorator="layouts/main" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create new user</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <section class="content">
+
+
+        <div class="row">
+            <div class="col-sm-6">
+            <!-- BEGIN OF ERROR BOX -->
+
+            <!-- END OF ERROR BOX -->
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">DODAJ UŻYTKOWNIKA</h3>
+                </div> <!-- end of header -->
+                <form role="form" th:object="${user}" th:action="@{/user/save}" method="post">
+                    <input type="hidden" th:field="*{id}" />
+                    <!--<input type="hidden" th:field="*{version}" />-->
+                    <div class="alert alert-danger alert-dismissable" th:if="${#fields.hasErrors('*')}">
+                        <p th:if="${#fields.hasErrors('*')}" th:errors="*">
+                        </p>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="name">Imię</label>
+                            <input class="form-control" id="name" th:field="*{name}" placeholder="Podaj imię"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Nazwisko</label>
+                            <input class="form-control" id="surname" th:field="*{surname}" placeholder="Podaj nazwisko"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="login">Login</label>
+                            <input class="form-control" id="login" th:field="*{login}" placeholder="Podaj login"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Hasło</label>
+                            <input class="form-control" type="password" id="password" th:field="*{password}" placeholder="Podaj hasło"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Podaj imię"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="text" class="form-control" id="phone" th:field="*{phone}" placeholder="Podaj nr telefonu"/>
+                        </div>
+                        <div class="form-gropup">
+                            <label>Struktura:</label>
+                            <select class="form-control" th:field="*{structure_id}">
+                                <option th:each="cell : ${structurecells}" th:value="${cell.id}" th:text="${cell.name}">
+                                    cell
+                                </option>
+                            </select>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="enabled" th:field="*{enabled}" />Aktywny
+                            </label>
+                        </div>
+
+                        <input type="hidden" id="structure-id" value="1" th:field="*{structure_id}" />
+                    </div> <!-- end of box body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success">ZAPISZ</button>
+                    </div> <!-- end of footer -->
+                </form>
+            </div> <!-- end of box -->
+        </div><!-- end of first column -->
+        <div class="col-sm-6">
+
+        </div><!-- end of second column -->
+
+        </div><!-- end of row -->
+        </section>
+    </div>
+</body>
+</html>

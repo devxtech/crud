@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl" layout:decorator="layouts/main">
+<body>
+	<div layout:fragment="content">
+		<section class="content">
+		   <div th:if="${not #lists.isEmpty(users)}" class="box">
+			   	<div class="box-header with-border">
+			   		<h3 class="box-title">Użytkownicy</h3>&nbsp;<a href="user/create" class="btn btn-success">DODAJ</a>
+			   	</div>
+			   	<div class="box-body">
+					<table class="table table-striped table-bordered">
+						<tr>
+						    <th>Id</th>
+						    <th>Imie i Nazwisko</th>
+						   	<th>Akcje</th>
+						</tr>
+						<tr th:each="user,iterationStatus : ${users}">
+						    <td th:text="${iterationStatus.count}">1</td>
+						    <td th:text="${user.name} + ' ' + ${user.surname}">Imię i Nazwisko</td>
+						    <td>
+							    <div class="btn-group">
+			                      <a th:href="${ '/user/' + user.id}" class="btn btn-success" data-container="body" data-toggle="tooltip" data-placement="top" title="Szczergóły użytkownika"><i class="fa fa-search"></i></a>
+			                      <a th:href="${'/user/edit/' + user.id}" class="btn btn-info" data-container="body" data-toggle="tooltip" data-placement="top" title="Edycja użytkownika"><i class="fa fa-edit"></i></a>
+			                      <a th:href="${'/user/delete/' + user.id}" class="btn btn-danger" data-container="body" data-toggle="tooltip" data-placement="top" title="Usuń użytkownika"><i class="fa fa-trash"></i></a>
+			                    </div>
+						    </td>
+						</tr>
+					</table>
+			   	</div>
+		    </div>
+	    </section>
+    </div>
+	
+		
+</body>
+</html>

@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+li .dropdown{
+	max-height: 50px;
+	border: 2px solid #ff0000;
+}

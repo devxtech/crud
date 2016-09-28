@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>crud</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+		<!-- Theme style -->
+		<link rel="stylesheet" href="/css/AdminLTE.min.css" />
+		<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+		<link rel="stylesheet" href="/css/skins/_all-skins.min.css" />
+		<!-- CUSTOM CSS -->
+		<link rel="stylesheet" href="/css/custom.css" />
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body class="hold-transition skin-blue fixed sidebar-mini">
+		<div class="wrapper">
+			<!-- TOP NAVBAR -->
+			<section>
+				<div th:replace="layouts/topnavbar :: topnavbar"></div>	
+			</section>		
+			
+			<section>
+				<!-- LEFT NAVBAR -->
+				<div th:replace="layouts/leftnavbar :: leftnavbar"></div>
+			</section>	
+			<!-- MAIN CONTENT -->
+			<div class="content-wrapper" layout:fragment="content"></div>
+			<section style="margin:0; padding: 0;">
+				<!-- FOOTER -->
+				<div th:replace="layouts/footer :: footer"></div>
+			</section>	
+		</div>
+		<script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}" src="/plugins/jQuery/jquery-2.2.3.min.js" type="text/javascript"></script>
+		<script th:src="@{/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+		<script th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+		<script th:src="@{/plugins/fastclick/fastclick.js}" type="text/javascript"></script>
+		<script th:src="@{/js/app.min.js}" type="text/javascript"></script>
+	</body>
+</html>
